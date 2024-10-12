@@ -1,0 +1,87 @@
+Первое ДЗ 
+Linux terminal (GitBash) commands
+1) Посмотреть где я
+	% pwd
+2) Создать папку
+	% mkdir dz
+3) Зайти в папку
+	% cd dz
+4) Создать 3 папки
+	% mkdir dz1 dz2 dz3
+5) Зайти в любоую папку
+	% cd dz1
+6) Создать 5 файлов (3 txt, 2 json)
+	touch  t1.txt t2.txt t3.txt t1.json t2.json
+7) Создать 3 папки
+	% mkdir f1 f2 f3
+8. Вывести список содержимого папки
+	 % ls
+	f1                f3                test1.txt                       test2.txt
+	f2                test1.json        test2.json        		    test3.txt
+9) + Открыть любой txt файл
+10) + написать туда что-нибудь, любой текст.
+11) + сохранить и выйти.
+	% cat > test1.txt
+		stroka1
+		stroka2
+		stroka3
+		stroka4
+		i_tyt_konec)
+12) Выйти из папки на уровень выше
+	% cd ..
+13) переместить любые 2 файла, которые вы создали, в любую другую папку.
+	% mv dz1/test1.txt dz2/test1.txt
+	% mv dz1/test1.json dz2/test1.json
+14) скопировать любые 2 файла, которые вы создали, в любую другую папку.
+	% cp dz2/test1.json dz1/test1.json
+	% cp dz2/test1.txt dz1/test1.txt
+15) Найти файл по имени
+	% find test1.txt
+test1.txt
+16) просмотреть содержимое в реальном времени (команда grep) изучите как она работает.
+	 % grep "stroka1" test1.txt
+stroka1
+17) вывести несколько первых строк из текстового файла
+	% head -2 test1.txt
+		stroka1
+		stroka2
+18) вывести несколько последних строк из текстового файла
+	% tail -2 test1.txt
+		stroka3
+		stroka4
+19) просмотреть содержимое длинного файла (команда less) изучите как она работает.
+ 	% less test1.txt
+		stroka1
+		stroka2
+		stroka3
+		stroka4
+20) вывести дату и время
+ 	% date
+Fri Oct  4 16:45:57 +03 2024
+
+Задание *
+1) Отправить http запрос на сервер.http://162.55.220.72:5005/terminal-hw-request
+	% lwp-request -m head http://162.55.220.72:5005/terminal-hw-request 
+		404 NOT FOUND
+		Date: Fri, 04 Oct 2024 13:53:22 GMT
+		Server: Werkzeug/2.0.1 Python/3.8.10
+		Content-Length: 232
+		Content-Type: text/html; charset=utf-8
+		Client-Date: Fri, 04 Oct 2024 13:53:21 GMT
+		Client-Peer: 162.55.220.72:5005
+		Client-Response-Num: 1
+2) Написать скрипт который выполнит автоматически пункты 3, 4, 5, 6, 7, 8, 13
+ 	% vi script.sh
+		#!/bin/bash
+		pwd
+		mkdir scf
+		cd scf
+		mkdir p1 p2 p3
+		cd p2
+		touch  t1.txt t2.txt t3.txt t1.json t2.json
+		mkdir f1 f2 f3
+		ls
+		cd ..
+		mv p2/t1.txt p1
+		mv p2/t1.json p1
+		sh script.sh
